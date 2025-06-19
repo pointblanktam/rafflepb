@@ -1,0 +1,294 @@
+/* Turuncu Paleti */
+:root {
+    --primary-orange: #FF8C00; /* Koyu Turuncu */
+    --light-orange: #FFA040;  /* Daha Açık Turuncu */
+    --accent-orange: #FFAB62; /* Vurgu Turuncusu */
+    --dark-orange: #CC7000;   /* Çok Koyu Turuncu */
+    --background-gray: #f0f0f0; /* Açık Gri Arka Plan - Arka plan görseli yoksa bu görünür */
+    --text-color: #ffffff;
+    --light-text-color: #ffffff;
+    --border-color: #FFB870;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Google Fonts'tan Poppins kullanıldı */
+    display: flex;
+    flex-direction: column; /* İçeriği dikey sırala */
+    justify-content: space-between; /* İçerik ve footer arasına boşluk bırak */
+    align-items: center; /* Yatayda ortala */
+    min-height: 100vh; /* Tam ekran yüksekliği */
+    background-color: var(--background-gray); /* Varsayılan arka plan rengi */
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    padding: 20px; /* İçerik kenarlara yapışmasın */
+    background-image: url('assets/background.png'); /* Resminizin yolu */
+    background-size: cover; /* Resmi tüm alanı kaplayacak şekilde ölçekle */
+    background-position: center; /* Resmi ortala */
+    background-repeat: no-repeat; /* Resmin tekrarlanmasını engelle */
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2); /* Yarı şeffaf beyaz (buzlu cam efekti için) */
+    backdrop-filter: blur(10px); /* Buzlu cam efekti */
+    -webkit-backdrop-filter: blur(10px); /* Safari desteği */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Belirgin gölge */
+    text-align: center;
+    max-width: 650px; /* Konteynerin maksimum genişliği */
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Hafif şeffaf border */
+    overflow: hidden; /* İçerik taşmasını engelle */
+    margin-bottom: 20px; /* Footer ile arasında boşluk bırak */
+}
+
+h1 {
+    color: var(--dark-orange);
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    color: var(--light-text-color);
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 1.1em;
+}
+
+.input-group {
+    margin: 20px auto;
+    text-align: left;
+    max-width: 300px; /* Sayı girişi grubunu ortalamak için */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* Yeni ibare için stil */
+.placeholder-text {
+    color: var(--light-text-color);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+
+input[type="file"],
+input[type="number"] {
+    display: block;
+    margin: 10px auto 20px auto; /* Marginler ayarlandı */
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.7); /* Dosya ve sayı girişi de buzlu gibi */
+    width: calc(100% - 30px); /* Padding'i hesaba kat */
+    box-sizing: border-box;
+    font-size: 1.1em;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    outline: none; /* Odaklandığında kenarlık rengi değişsin */
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"] {
+    margin-bottom: 25px; /* Dosya girişi ile sayı girişi arası boşluk */
+}
+
+input[type="number"] {
+    width: 100%; /* Sayı girişi grup içinde tam genişlik */
+    text-align: center; /* Sayı ortalansın */
+    -moz-appearance: textfield; /* Firefox'ta okları gizle */
+}
+/* Chrome/Safari/Edge'de sayı girişi oklarını gizle */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="file"]:hover,
+input[type="file"]:focus,
+input[type="number"]:hover,
+input[type="number"]:focus {
+    border-color: var(--primary-orange);
+}
+
+button {
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 16px 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3); /* Turuncu tonlarında gölge */
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--dark-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+.status-message {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: rgba(255, 160, 64, 0.2); /* Açık turuncu arka plan */
+    border: 1px solid var(--accent-orange);
+    color: var(--dark-orange);
+    font-weight: 600;
+    font-size: 1em;
+    animation: fadeIn 0.5s ease-out; /* Fade in animasyonu */
+}
+
+.result-area {
+    margin-top: 40px;
+    padding: 30px;
+    border: 2px dashed var(--primary-orange);
+    background-color: rgba(255, 160, 64, 0.1); /* Çok hafif turuncu arka plan */
+    min-height: 150px; /* Minimum yükseklik */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Liste öğeleri yukarıdan başlasın */
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Taşmayı gizle */
+}
+
+.result-area h2 {
+    color: var(--primary-orange);
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#winnersList {
+    width: 100%;
+    list-style: none; /* Liste işaretlerini kaldır */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Liste öğeleri arasında boşluk */
+}
+
+.winner-item {
+    background-color: rgba(255, 255, 255, 0.8); /* Yarı şeffaf beyaz */
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center; /* Sadece takma ad kalacağı için ortala */
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    opacity: 0; /* Başlangıçta gizli */
+    transform: translateY(20px); /* Alttan gelsin */
+    animation: winnerItemReveal 0.6s ease-out forwards; /* Animasyonu uygula */
+}
+
+.winner-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* UID'yi gizlemek için yeni kural */
+.winner-item span:first-child { /* Winner item içindeki ilk span (UID) */
+    display: none;
+}
+
+
+.winner-item .nickname {
+    color: var(--primary-orange);
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+/* Animasyonlar */
+@keyframes winnerItemReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.placeholder-message {
+    color: var(--light-text-color);
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.error-area {
+    margin-top: 25px;
+    padding: 18px;
+    background-color: #ffe6e6; /* Hata arka plan rengi */
+    border: 1px solid #ff5c5c; /* Hata border rengi */
+    color: #cc0000; /* Hata metin rengi */
+    font-weight: 600;
+    font-size: 1em;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* İndirme düğmesi için stil (mevcut buton stiline benzer) */
+#downloadTxtBtn {
+    background-color: var(--dark-orange); /* Biraz daha koyu turuncu */
+    margin-top: 25px; /* Sonuç listesinden biraz boşluk bırak */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 12px rgba(204, 112, 0, 0.4);
+}
+
+#downloadTxtBtn:hover {
+    background-color: #A65A00; /* Daha da koyu hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(204, 112, 0, 0.5);
+}
+
+/* Footer Stili */
+.footer {
+    width: 100%; /* Tam genişlik */
+    padding: 15px;
+    text-align: center;
+    margin-top: auto; /* İçeriği yukarı iterek kendini en alta sabitler */
+    background-color: rgba(255, 140, 0, 0.1); /* Yarı şeffaf turuncu */
+    color: var(--dark-orange); /* Koyu turuncu metin */
+    font-size: 0.9em;
+    font-weight: 500;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Hafif üst gölge */
+    /* backdrop-filter: blur(5px);  İsteğe bağlı: Footera da buzlu cam efekti */
+    /* -webkit-backdrop-filter: blur(5px); */
+}
+
+.footer p {
+    margin: 0; /* P etiketinin varsayılan marginlerini kaldır */
+    color: inherit; /* Rengini parent'tan alsın */
+}

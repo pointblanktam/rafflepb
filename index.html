@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PB Şanslı Çekiliş</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://pb.tamgame.com/images/common/bi_wide_new_tr.png">
+        <h1>Şanslı Çekiliş Botu</h1>
+        <p>Lütfen katılımcıların Excel dosyasını yükleyiniz.</p>
+        
+        <input type="file" id="excelFile" accept=".xlsx, .xls">
+        <div id="loadingFile" class="status-message" style="display: none;">Dosya Yükleniyor ve İşleniyor...</div>
+        
+        <div class="input-group">
+            <div id="winnerCountPlaceholder" class="placeholder-text">
+                Lütfen önce Excel dosyanızı yükleyin.
+            </div>
+            <label for="winnerCount" style="display: none;">Kaç Kazanan Seçilecek?</label>
+            <input type="number" id="winnerCount" min="1" value="1" disabled>
+        </div>
+
+        <button id="startDraw" disabled>Çekilişi Başlat</button>
+        <div id="drawingStatus" class="status-message" style="display: none;">Kazananlar Belirleniyor...</div>
+
+        <div id="result" class="result-area">
+            <h2>Çekiliş Sonuçları:</h2>
+            <div id="winnersList">
+                </div>
+            <div id="noWinnersYet" class="placeholder-message">Henüz kazanan yok.</div>
+            <button id="downloadTxtBtn" style="display: none;">Kazananları TXT Olarak İndir</button>
+        </div>
+        
+        <div id="error" class="error-area" style="display: none;">
+            <p></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="https://pb.tamgame.com/images/tr/logo_nfinity.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="https://pb.tamgame.com/images/common/logo_zepetto.png">
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
